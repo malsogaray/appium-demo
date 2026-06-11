@@ -12,7 +12,6 @@
         <serenity.maven.version>5.3.10</serenity.maven.version>
         <cucumber.version>7.34.2</cucumber.version>
         <appium.version>10.1.1</appium.version>
-        <selenium.version>4.42.0</selenium.version>
         <junit.version>5.13.4</junit.version>
         <!-- <webdriver.driver>appium</webdriver.driver> -->
         <testPlatform>android</testPlatform>
@@ -72,13 +71,7 @@
                 <artifactId>selenium-support</artifactId>
                 <version>${selenium.version}</version>
             </dependency>
-            <dependency>
-                <groupId>org.seleniumhq.selenium</groupId>
-                <artifactId>selenium-bom</artifactId>
-                <version>${selenium.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
+           
             <dependency>
                 <groupId>io.appium</groupId>
                 <artifactId>java-client</artifactId>
@@ -89,6 +82,10 @@
     </dependencyManagement>
 
     <dependencies>
+         <dependency>
+                <groupId>org.seleniumhq.selenium</groupId>
+                <artifactId>selenium-java</artifactId>
+        </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
@@ -325,7 +322,7 @@
                         <include>**/*IntegrationTest.java</include>
                     </includes>
                     <systemPropertyVariables>
-                        <properties>${user.dir}/src/test/resources/serenity.conf</properties>
+                        <properties>${user.dir}/appium-demo/src//test/resources/serenity.conf</properties>
                         <testPlatform>${testPlatform}</testPlatform>
                         <testDatabaseProperties>${user.dir}/src/test/resources/${testEnvironment}.database.properties</testDatabaseProperties>
                         <testEnvironment>${testEnvironment}</testEnvironment>
